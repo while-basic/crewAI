@@ -1,36 +1,33 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nBegin! This
-      is VERY important to you, your job depends on it!\n\nCurrent Task: What is 2
-      times 6 times 3?\n"}], "model": "gpt-4", "n": 1, "stop": ["\nObservation"],
-      "stream": false, "temperature": 0.7}'
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6?\n\n Begin! This is VERY important
+      to you, your job depends on it!\n\n\n"}], "model": "gpt-4", "n": 1, "stop":
+      ["\nResult"], "stream": true, "temperature": 0.7}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '1226'
+      - '1011'
       content-type:
       - application/json
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -40,7 +37,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -48,35 +45,91 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJZtUPnKq6VZF4MONtmythEh09n\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410481,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Thought: Do I need to use a tool? Yes\\nAction:
-      multiplier\\nAction Input: 2,6\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 264,\n    \"completion_tokens\":
-      23,\n    \"total_tokens\": 287\n  },\n  \"system_fingerprint\": null\n}\n"
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Use"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Tool"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        multiplier"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        first"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"2"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        second"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"6"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qAgu90PnenBXAbCkQ74NCAmiME","object":"chat.completion.chunk","created":1709098338,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 840737a0efa24cf1-GRU
+      - 85c649435e651b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
-      - application/json
+      - text/event-stream
       Date:
-      - Thu, 04 Jan 2024 23:21:23 GMT
+      - Wed, 28 Feb 2024 05:32:18 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        path=/; expires=Thu, 04-Jan-24 23:51:23 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        path=/; expires=Wed, 28-Feb-24 06:02:18 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000;
+      - _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -87,9 +140,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '2385'
+      - '340'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -98,60 +151,169 @@ interactions:
       - '10000'
       x-ratelimit-limit-tokens:
       - '300000'
-      x-ratelimit-limit-tokens_usage_based:
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299769'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 46ms
+      x-request-id:
+      - req_43496871489b6acdbe2fc69684452055
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "Only tools available:\n###\nTool
+      Name: multiplier\nTool Description: multiplier(first_number: int, second_number:
+      int) -> float - Useful for when you need to multiply two numbers together.\nTool
+      Arguments: {''first_number'': {''type'': ''integer''}, ''second_number'': {''type'':
+      ''integer''}}\n\nReturn a valid schema for the tool, the tool name must be exactly
+      equal one of the options, use this text to inform the valid ouput schema:\n\nUse
+      Tool: multiplier, first_number: 2, second_number: 6```"}, {"role": "system",
+      "content": "The schema should have the following structure, only two keys:\n-
+      tool_name: str\n- arguments: dict (with all arguments being passed)\n\nExample:\n{\"tool_name\":
+      \"tool name\", \"arguments\": {\"arg_name1\": \"value\", \"arg_name2\": 2}}"}],
+      "model": "gpt-4", "tool_choice": {"type": "function", "function": {"name": "InstructorToolCalling"}},
+      "tools": [{"type": "function", "function": {"name": "InstructorToolCalling",
+      "description": "Correctly extracted `InstructorToolCalling` with all the required
+      parameters with correct types", "parameters": {"properties": {"tool_name": {"description":
+      "The name of the tool to be called.", "title": "Tool Name", "type": "string"},
+      "arguments": {"anyOf": [{"type": "object"}, {"type": "null"}], "description":
+      "A dictinary of arguments to be passed to the tool.", "title": "Arguments"}},
+      "required": ["arguments", "tool_name"], "type": "object"}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1455'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IcwMACCG6mzPMp1uLiQpe3wAdBX5UxdNoef8/akGAdJFe5yvRetd6CdAEQzmwrOttqIFTgtUrK25
+        xZq7kgdEWQHtvX8RwM2CAszXqs5tMN3p97jYW+np1/j15OLt2K2GLy8P+uW3eHu6u2MnAug/tjqv
+        OZleiIG18Q5CZi5/pBcUSCbxLJ5NB4MZ8RXrF9pQgKtQd4fdeJwMuB6u/SbXFQXeIwD4exsBPPd+
+        SIG400tGYagUwB8BLL3RFKCqqk1VK1ezAwBl6yYFXGMMca723mS5MkY5/kT/vsEk/VUZk10+PCeP
+        07cjF99cHDR2tHc2U3G4OdaJixd/wqCoCIxODEUbEgozAJ2yBqmnLoX793z54L3ZV8Zs3EqYC3Cx
+        VyjAP+kAad0Fp6yWFJA8pn4lmI0uJTsoihOTFLgASC43ZVVnW2EtSQqkHSqVUx5eH46lA1rpWtqA
+        tj3gpuc4pp2KZTR+FUr/Ua0Mw/J4SLYV2QoFWNU+qPHaCJi7TL/xgqcYSm9DndV+p11FgXQ8lonQ
+        OwFCHgwb+JkEkGbHcTRKlhULDrLlxq10GcqNBxlRGxkD
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c6494a89e51b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Feb 2024 05:32:20 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '1128'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
       - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299717'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299717'
+      - '299807'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 56ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 56ms
+      - 38ms
       x-request-id:
-      - 046262aad835176c0452148b956bd3b7
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_0d2c2067c245cd5b0fee4c99b75c17d7
+    status:
+      code: 200
+      message: OK
 - request:
     body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nBegin! This
-      is VERY important to you, your job depends on it!\n\nCurrent Task: What is 2
-      times 6 times 3?\nThought: Do I need to use a tool? Yes\nAction: multiplier\nAction
-      Input: 2,6\nObservation: 12\nThought: "}], "model": "gpt-4", "n": 1, "stop":
-      ["\nObservation"], "stream": false, "temperature": 0.7}'
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6?\n\n Begin! This is VERY important
+      to you, your job depends on it!\n\n\nUse Tool: multiplier, first_number: 2,
+      second_number: 6\nResult: 12\n\nIf I don''t need to use any more tools, I must
+      make sure use the correct format to give my final answer:\n\n```Final Answer:
+      [my expected final answer, entire content of my most complete final answer goes
+      here]```\n I MUST use these formats, my jobs depends on it!\n"}], "model": "gpt-4",
+      "n": 1, "stop": ["\nResult"], "stream": true, "temperature": 0.7}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '1330'
+      - '1347'
       content-type:
       - application/json
       cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -161,7 +323,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -169,29 +331,72 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJbK95KVEIvP4ef6TZpLLRawMDi\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410483,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"I now have the result of 2 times 6, which
-      is 12. Now I need to multiply this result by 3. \\nAction: multiplier\\nAction
-      Input: 12,3\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 297,\n    \"completion_tokens\":
-      40,\n    \"total_tokens\": 337\n  },\n  \"system_fingerprint\": null\n}\n"
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Final"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Answer"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"2"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        times"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"6"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        is"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"12"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"."},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qChRb9pwo1zMXaXR5L9ncqSz9n","object":"chat.completion.chunk","created":1709098340,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 840737b34a724cf1-GRU
+      - 85c649534ec31b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
-      - application/json
+      - text/event-stream
       Date:
-      - Thu, 04 Jan 2024 23:21:28 GMT
+      - Wed, 28 Feb 2024 05:32:21 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -203,9 +408,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '4652'
+      - '368'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -214,62 +419,51 @@ interactions:
       - '10000'
       x-ratelimit-limit-tokens:
       - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299692'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299692'
+      - '299686'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 61ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 61ms
+      - 62ms
       x-request-id:
-      - 0ac87c29d1c4ada9136f825d7170019e
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_e82f334670cc56a9beef7c00dc2dce75
+    status:
+      code: 200
+      message: OK
 - request:
     body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nBegin! This
-      is VERY important to you, your job depends on it!\n\nCurrent Task: What is 2
-      times 6 times 3?\nThought: Do I need to use a tool? Yes\nAction: multiplier\nAction
-      Input: 2,6\nObservation: 12\nThought: I now have the result of 2 times 6, which
-      is 12. Now I need to multiply this result by 3. \nAction: multiplier\nAction
-      Input: 12,3\nObservation: 36\nThought: "}], "model": "gpt-4", "n": 1, "stop":
-      ["\nObservation"], "stream": false, "temperature": 0.7}'
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 3 times 3?\n\n Begin! This is VERY important
+      to you, your job depends on it!\n\n\n"}], "model": "gpt-4", "n": 1, "stop":
+      ["\nResult"], "stream": true, "temperature": 0.7}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '1488'
+      - '1011'
       content-type:
       - application/json
       cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -279,7 +473,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -287,29 +481,94 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJhF2MkahkTxtgcI0Mfkwd11kpC\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410489,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Do I need to use a tool? No\\nFinal Answer:
-      The result of 2 times 6 times 3 is 36.\"\n      },\n      \"logprobs\": null,\n
-      \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-      346,\n    \"completion_tokens\": 28,\n    \"total_tokens\": 374\n  },\n  \"system_fingerprint\":
-      null\n}\n"
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Use"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Tool"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        multiplier"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        with"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        first"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        as"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        and"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        second"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        as"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"."},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qDzBpduar9bsvdQLEV0Fvg9AoV","object":"chat.completion.chunk","created":1709098341,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 840737d298314cf1-GRU
+      - 85c64959eaae1b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
-      - application/json
+      - text/event-stream
       Date:
-      - Thu, 04 Jan 2024 23:21:31 GMT
+      - Wed, 28 Feb 2024 05:32:22 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -321,9 +580,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '2058'
+      - '347'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -332,55 +591,56 @@ interactions:
       - '10000'
       x-ratelimit-limit-tokens:
       - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299655'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299655'
+      - '299769'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 69ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 69ms
+      - 46ms
       x-request-id:
-      - f6e5b231d31300f0fd38837c922e9bd1
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_c5a4a7edaf95df55fca65e88ea6fe467
+    status:
+      code: 200
+      message: OK
 - request:
-    body: '{"messages": [{"role": "user", "content": "Progressively summarize the
-      lines of conversation provided, adding onto the previous summary returning a
-      new summary.\n\nEXAMPLE\nCurrent summary:\nThe human asks what the AI thinks
-      of artificial intelligence. The AI thinks artificial intelligence is a force
-      for good.\n\nNew lines of conversation:\nHuman: Why do you think artificial
-      intelligence is a force for good?\nAI: Because artificial intelligence will
-      help humans reach their full potential.\n\nNew summary:\nThe human asks what
-      the AI thinks of artificial intelligence. The AI thinks artificial intelligence
-      is a force for good because it will help humans reach their full potential.\nEND
-      OF EXAMPLE\n\nCurrent summary:\n\n\nNew lines of conversation:\nHuman: What
-      is 2 times 6 times 3?\nAI: The result of 2 times 6 times 3 is 36.\n\nNew summary:"}],
-      "model": "gpt-4", "n": 1, "stream": false, "temperature": 0.7}'
+    body: '{"messages": [{"role": "user", "content": "Only tools available:\n###\nTool
+      Name: multiplier\nTool Description: multiplier(first_number: int, second_number:
+      int) -> float - Useful for when you need to multiply two numbers together.\nTool
+      Arguments: {''first_number'': {''type'': ''integer''}, ''second_number'': {''type'':
+      ''integer''}}\n\nReturn a valid schema for the tool, the tool name must be exactly
+      equal one of the options, use this text to inform the valid ouput schema:\n\nUse
+      Tool: multiplier, with first_number as 3 and second_number as 3.```"}, {"role":
+      "system", "content": "The schema should have the following structure, only two
+      keys:\n- tool_name: str\n- arguments: dict (with all arguments being passed)\n\nExample:\n{\"tool_name\":
+      \"tool name\", \"arguments\": {\"arg_name1\": \"value\", \"arg_name2\": 2}}"}],
+      "model": "gpt-4", "tool_choice": {"type": "function", "function": {"name": "InstructorToolCalling"}},
+      "tools": [{"type": "function", "function": {"name": "InstructorToolCalling",
+      "description": "Correctly extracted `InstructorToolCalling` with all the required
+      parameters with correct types", "parameters": {"properties": {"tool_name": {"description":
+      "The name of the tool to be called.", "title": "Tool Name", "type": "string"},
+      "arguments": {"anyOf": [{"type": "object"}, {"type": "null"}], "description":
+      "A dictinary of arguments to be passed to the tool.", "title": "Arguments"}},
+      "required": ["arguments", "tool_name"], "type": "object"}}}]}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '916'
+      - '1468'
       content-type:
       - application/json
       cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -390,7 +650,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -398,29 +658,31 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJjBQBoZr35ModTeuswGEtw2tjP\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410491,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"The human asks the AI to calculate the
-      result of 2 times 6 times 3. The AI responds that the result is 36.\"\n      },\n
-      \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-      \ \"usage\": {\n    \"prompt_tokens\": 164,\n    \"completion_tokens\": 29,\n
-      \   \"total_tokens\": 193\n  },\n  \"system_fingerprint\": null\n}\n"
+    body:
+      string: !!binary |
+        IcwMACBG6nT3Mv39HEJtBWDFQYNakSHh/v2pBgHSRXucr0XrJfQToAgGByed2ooWOFegYm3NLdbc
+        lTwgygpon90HANWCApyn03JuvK4ONr3s7LjT67rLs6/Tq07nuqFfPn1zc7wbzFgJALrZbzQvOZla
+        iIGlnIWQmcufRQsKNPuNYWM4aHdaxHeMW0SaAkx8We1UG71mm+tp6tQ8KijwEwDA/m0C8Nz7IQUa
+        lV4yCkOlAP4IYO50RAFOi0IV5dSWrABA2bpZAbvUmrhUOqfH86nWyvEnuv8Gk/TXqdbj/t3p7nKT
+        2vLybNW6tC8nufKPp09HOnHx4tYPiorA6MVQtDGhMAPQTo1B6pVN4f49l786p0+mWiubCHMBLvYO
+        BbiXFpDWnbBTE0kKSB5Tv+K1inLJCorixCQFTgCSscqLcrwV1pKkQLtCpXLKd651aYF/af9pA/rf
+        A256hGP+p2IbtUt87mbFyjAsj4eMtyJboQCL0nk13n8AjFxmuPSCl+hzZ3w5Lt1fZAsKtHoDmQi9
+        EyDkdqeBn0kAaXajFYySZcWCK+NY2STKfa48yAj+AwMD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 840737e2ba844cf1-GRU
+      - 85c649601eb71b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
+      - br
       Content-Type:
       - application/json
       Date:
-      - Thu, 04 Jan 2024 23:21:34 GMT
+      - Wed, 28 Feb 2024 05:32:24 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -432,9 +694,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '2271'
+      - '1860'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -443,641 +705,56 @@ interactions:
       - '10000'
       x-ratelimit-limit-tokens:
       - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299785'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299785'
+      - '299804'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 42ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 42ms
+      - 39ms
       x-request-id:
-      - 8ad8144463663dc3b88085fc32b1b483
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3. The AI responds that
-      the result is 36.Begin! This is VERY important to you, your job depends on it!\n\nCurrent
-      Task: What is 3 times 3?\n"}], "model": "gpt-4", "n": 1, "stop": ["\nObservation"],
-      "stream": false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1324'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJm2y9jBzayNvIuDEG9o7PbtaHc\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410494,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Thought: Do I need to use a tool? Yes\\nAction:
-      multiplier\\nAction Input: 3,3\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 289,\n    \"completion_tokens\":
-      23,\n    \"total_tokens\": 312\n  },\n  \"system_fingerprint\": null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 840737f458194cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:21:36 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '1957'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299694'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299694'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 61ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 61ms
-      x-request-id:
-      - 942247ea782c0b5329b5d7823d178b46
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_8adb4dc64a2ce4ad6e619410d4379284
+    status:
+      code: 200
+      message: OK
 - request:
     body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3. The AI responds that
-      the result is 36.Begin! This is VERY important to you, your job depends on it!\n\nCurrent
-      Task: What is 3 times 3?\nThought: Do I need to use a tool? Yes\nAction: multiplier\nAction
-      Input: 3,3\nObservation: 9\nThought: "}], "model": "gpt-4", "n": 1, "stop":
-      ["\nObservation"], "stream": false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1427'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJo2mceGJaJYyc0EOFVY3VrrYTm\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410496,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Do I need to use a tool? No\\nFinal Answer:
-      The result of 3 times 3 is 9.\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 322,\n    \"completion_tokens\":
-      25,\n    \"total_tokens\": 347\n  },\n  \"system_fingerprint\": null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 840738023a914cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:21:37 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '1367'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299669'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299669'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 66ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 66ms
-      x-request-id:
-      - b7f5ef94b4ce3b5dff9ccce2ee17aa36
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "Progressively summarize the
-      lines of conversation provided, adding onto the previous summary returning a
-      new summary.\n\nEXAMPLE\nCurrent summary:\nThe human asks what the AI thinks
-      of artificial intelligence. The AI thinks artificial intelligence is a force
-      for good.\n\nNew lines of conversation:\nHuman: Why do you think artificial
-      intelligence is a force for good?\nAI: Because artificial intelligence will
-      help humans reach their full potential.\n\nNew summary:\nThe human asks what
-      the AI thinks of artificial intelligence. The AI thinks artificial intelligence
-      is a force for good because it will help humans reach their full potential.\nEND
-      OF EXAMPLE\n\nCurrent summary:\nThe human asks the AI to calculate the result
-      of 2 times 6 times 3. The AI responds that the result is 36.\n\nNew lines of
-      conversation:\nHuman: What is 3 times 3?\nAI: The result of 3 times 3 is 9.\n\nNew
-      summary:"}], "model": "gpt-4", "n": 1, "stream": false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1005'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJq51b9NZmkgDeLVgsFDktIYPiy\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410498,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"The human asks the AI to calculate the
-      result of 2 times 6 times 3 and the result of 3 times 3. The AI responds that
-      the results are 36 and 9 respectively.\"\n      },\n      \"logprobs\": null,\n
-      \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-      187,\n    \"completion_tokens\": 42,\n    \"total_tokens\": 229\n  },\n  \"system_fingerprint\":
-      null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 8407380c6df24cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:21:41 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '3217'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299764'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299764'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 47ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 47ms
-      x-request-id:
-      - 550bf2e363b03a6cfb8ca591bfa50e56
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3 and the result of 3
-      times 3. The AI responds that the results are 36 and 9 respectively.Begin! This
-      is VERY important to you, your job depends on it!\n\nCurrent Task: What is 2
-      times 6 times 3? Return only the number\n"}], "model": "gpt-4", "n": 1, "stop":
-      ["\nObservation"], "stream": false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1404'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJttT1bqS0Dw9TF3tXD35sSMaR5\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410501,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Thought: Do I need to use a tool? Yes\\nAction:
-      multiplier\\nAction Input: 2,6\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 310,\n    \"completion_tokens\":
-      23,\n    \"total_tokens\": 333\n  },\n  \"system_fingerprint\": null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 84073823b8044cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:21:43 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '1789'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299674'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299674'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 65ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 65ms
-      x-request-id:
-      - cccdedbf56cb22290d601f6e6330c53f
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3 and the result of 3
-      times 3. The AI responds that the results are 36 and 9 respectively.Begin! This
-      is VERY important to you, your job depends on it!\n\nCurrent Task: What is 2
-      times 6 times 3? Return only the number\nThought: Do I need to use a tool? Yes\nAction:
-      multiplier\nAction Input: 2,6\nObservation: 12\nThought: "}], "model": "gpt-4",
-      "n": 1, "stop": ["\nObservation"], "stream": false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1508'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJvNoYe5iq6X8vuBgyBcAw867y9\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410503,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Do I need to use a tool? Yes\\nAction:
-      multiplier\\nAction Input: 12,3\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 343,\n    \"completion_tokens\":
-      21,\n    \"total_tokens\": 364\n  },\n  \"system_fingerprint\": null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 840738309ec24cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:21:45 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '1472'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299649'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299649'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 70ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 70ms
-      x-request-id:
-      - c898340b6c6fcf809be12d07900e9bde
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3 and the result of 3
-      times 3. The AI responds that the results are 36 and 9 respectively.Begin! This
-      is VERY important to you, your job depends on it!\n\nCurrent Task: What is 2
-      times 6 times 3? Return only the number\nThought: Do I need to use a tool? Yes\nAction:
-      multiplier\nAction Input: 2,6\nObservation: 12\nThought: Do I need to use a
-      tool? Yes\nAction: multiplier\nAction Input: 12,3\nObservation: 36\nThought:
-      "}], "model": "gpt-4", "n": 1, "stop": ["\nObservation"], "stream": false, "temperature":
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 3 times 3?\n\n Begin! This is VERY important
+      to you, your job depends on it!\n\n\nUse Tool: multiplier, with first_number
+      as 3 and second_number as 3.\nResult: 9\n\nIf I don''t need to use any more
+      tools, I must make sure use the correct format to give my final answer:\n\n```Final
+      Answer: [my expected final answer, entire content of my most complete final
+      answer goes here]```\n I MUST use these formats, my jobs depends on it!\n"}],
+      "model": "gpt-4", "n": 1, "stop": ["\nResult"], "stream": true, "temperature":
       0.7}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '1604'
+      - '1359'
       content-type:
       - application/json
       cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -1087,7 +764,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -1095,28 +772,84 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRJxnthP0NqebBVQ5TRxHkM8ZBmp\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410505,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Do I need to use a tool? No\\nFinal Answer:
-      36\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-      \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 373,\n    \"completion_tokens\":
-      15,\n    \"total_tokens\": 388\n  },\n  \"system_fingerprint\": null\n}\n"
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Final"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Answer"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        The"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        result"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        of"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        times"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        is"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"9"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"."},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qGcWlaQldj9PGHPTSf3r1ij8CU","object":"chat.completion.chunk","created":1709098344,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8407383b9d2f4cf1-GRU
+      - 85c6496d5da91b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
-      - application/json
+      - text/event-stream
       Date:
-      - Thu, 04 Jan 2024 23:21:48 GMT
+      - Wed, 28 Feb 2024 05:32:25 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -1128,9 +861,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '2463'
+      - '380'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -1139,57 +872,51 @@ interactions:
       - '10000'
       x-ratelimit-limit-tokens:
       - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299625'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299625'
+      - '299684'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 74ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 74ms
+      - 63ms
       x-request-id:
-      - bf53e87deae98b7493aac8ab51501f7b
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_846c118aaf7f62ea13d9eca537890300
+    status:
+      code: 200
+      message: OK
 - request:
-    body: '{"messages": [{"role": "user", "content": "Progressively summarize the
-      lines of conversation provided, adding onto the previous summary returning a
-      new summary.\n\nEXAMPLE\nCurrent summary:\nThe human asks what the AI thinks
-      of artificial intelligence. The AI thinks artificial intelligence is a force
-      for good.\n\nNew lines of conversation:\nHuman: Why do you think artificial
-      intelligence is a force for good?\nAI: Because artificial intelligence will
-      help humans reach their full potential.\n\nNew summary:\nThe human asks what
-      the AI thinks of artificial intelligence. The AI thinks artificial intelligence
-      is a force for good because it will help humans reach their full potential.\nEND
-      OF EXAMPLE\n\nCurrent summary:\nThe human asks the AI to calculate the result
-      of 2 times 6 times 3 and the result of 3 times 3. The AI responds that the results
-      are 36 and 9 respectively.\n\nNew lines of conversation:\nHuman: What is 2 times
-      6 times 3? Return only the number\nAI: 36\n\nNew summary:"}], "model": "gpt-4",
-      "n": 1, "stream": false, "temperature": 0.7}'
+    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6 times 3? Return only the number\n\n
+      Begin! This is VERY important to you, your job depends on it!\n\n\n"}], "model":
+      "gpt-4", "n": 1, "stop": ["\nResult"], "stream": true, "temperature": 0.7}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '1058'
+      - '1042'
       content-type:
       - application/json
       cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -1199,7 +926,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -1207,30 +934,84 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRK0b5C1SRY6Bv7O7ubdcAw8bU3j\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410508,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"The human asks the AI to calculate the
-      result of 2 times 6 times 3 twice and the result of 3 times 3 once. The AI consistently
-      responds that the result of 2 times 6 times 3 is 36 and that the result of 3
-      times 3 is 9.\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 199,\n    \"completion_tokens\":
-      63,\n    \"total_tokens\": 262\n  },\n  \"system_fingerprint\": null\n}\n"
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Use"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Tool"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        multiplier"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        first"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"2"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        second"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"6"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qIlqXdxYkuantn9TirM8SwItsW","object":"chat.completion.chunk","created":1709098346,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8407384cdf434cf1-GRU
+      - 85c6497599a01b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
-      - application/json
+      - text/event-stream
       Date:
-      - Thu, 04 Jan 2024 23:21:53 GMT
+      - Wed, 28 Feb 2024 05:32:26 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -1242,9 +1023,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '4310'
+      - '303'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -1253,62 +1034,873 @@ interactions:
       - '10000'
       x-ratelimit-limit-tokens:
       - '300000'
-      x-ratelimit-limit-tokens_usage_based:
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299760'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 47ms
+      x-request-id:
+      - req_74e80eb6d91de09e71f431cd743f04fb
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "Only tools available:\n###\nTool
+      Name: multiplier\nTool Description: multiplier(first_number: int, second_number:
+      int) -> float - Useful for when you need to multiply two numbers together.\nTool
+      Arguments: {''first_number'': {''type'': ''integer''}, ''second_number'': {''type'':
+      ''integer''}}\n\nReturn a valid schema for the tool, the tool name must be exactly
+      equal one of the options, use this text to inform the valid ouput schema:\n\nUse
+      Tool: multiplier, first_number: 2, second_number: 6```"}, {"role": "system",
+      "content": "The schema should have the following structure, only two keys:\n-
+      tool_name: str\n- arguments: dict (with all arguments being passed)\n\nExample:\n{\"tool_name\":
+      \"tool name\", \"arguments\": {\"arg_name1\": \"value\", \"arg_name2\": 2}}"}],
+      "model": "gpt-4", "tool_choice": {"type": "function", "function": {"name": "InstructorToolCalling"}},
+      "tools": [{"type": "function", "function": {"name": "InstructorToolCalling",
+      "description": "Correctly extracted `InstructorToolCalling` with all the required
+      parameters with correct types", "parameters": {"properties": {"tool_name": {"description":
+      "The name of the tool to be called.", "title": "Tool Name", "type": "string"},
+      "arguments": {"anyOf": [{"type": "object"}, {"type": "null"}], "description":
+      "A dictinary of arguments to be passed to the tool.", "title": "Arguments"}},
+      "required": ["arguments", "tool_name"], "type": "object"}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1455'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IagMACBG6nT3Mv39HEA31lYAVs6nOAqKDOF2/m8GLg3ag6IxtU2/dAuGvUCmlugBd0eHh7edNtkd
+        zS9ZH/raQwRwPqYAs5mqMhtMfbCN89vXUzU+jj91cruYFD8bfV22n87y+IS1CKAfLXRWUeKNFAN1
+        7h0KUrn8TI8p0D5qJa1k0O0NgHesH2tDAU5DVe/VW3G7S3U68/NMlxT4jQDgsBoBfPe+S4FW7SuS
+        hSFQIP4IYOGNpgBVWc7LSrmKNYRc27pJAbcyBjhXeW/STBkjHJrBwz53SH9VxqRfz8mx3nX7b6F6
+        urv+7pWdfHD2c30rE2LP7IJSaAZGKQ4KqxMCIwCdsgYJ166E++d88ea9OVXGzN2UmQHQ2TEK8CCd
+        tO2BU1ZLCkg+Uv9JMHNdSNakk1RfSQocpIPkZF6UVXoH1oikQKcGQivJ58e7sXQA/qX7p+qN/9Ee
+        G5qH/5/AMho/DYUflQ7B2RUPSG8gG6MAy8oHMdZ/BAwjpbpy/iWGwttQpZVfaldSoBPHPAEGZQ4D
+        64YRwH9IkIOZnSSOtCTYqGAlnczdVBehmAeOHP1HAw==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c6498298fa1b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Feb 2024 05:32:28 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '743'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '300000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299806'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 38ms
+      x-request-id:
+      - req_3b6e28b3190cf4db72332a4dde5de149
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6 times 3? Return only the number\n\n
+      Begin! This is VERY important to you, your job depends on it!\n\n\nUse Tool:
+      multiplier, first_number: 2, second_number: 6\nResult: 12\n\nIf I don''t need
+      to use any more tools, I must make sure use the correct format to give my final
+      answer:\n\n```Final Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]```\n I MUST use these formats, my jobs
+      depends on it!\n"}], "model": "gpt-4", "n": 1, "stop": ["\nResult"], "stream":
+      true, "temperature": 0.7}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1378'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Use"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Tool"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        multiplier"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        first"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"12"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        second"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qLasLozYTOxgGOcuxAky9n2yfk","object":"chat.completion.chunk","created":1709098349,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c649890c631b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream
+      Date:
+      - Wed, 28 Feb 2024 05:32:29 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '194'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '300000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299679'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 64ms
+      x-request-id:
+      - req_ace169282fd24778ff816d741a483c5a
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "Only tools available:\n###\nTool
+      Name: multiplier\nTool Description: multiplier(first_number: int, second_number:
+      int) -> float - Useful for when you need to multiply two numbers together.\nTool
+      Arguments: {''first_number'': {''type'': ''integer''}, ''second_number'': {''type'':
+      ''integer''}}\n\nReturn a valid schema for the tool, the tool name must be exactly
+      equal one of the options, use this text to inform the valid ouput schema:\n\nUse
+      Tool: multiplier, first_number: 12, second_number: 3```"}, {"role": "system",
+      "content": "The schema should have the following structure, only two keys:\n-
+      tool_name: str\n- arguments: dict (with all arguments being passed)\n\nExample:\n{\"tool_name\":
+      \"tool name\", \"arguments\": {\"arg_name1\": \"value\", \"arg_name2\": 2}}"}],
+      "model": "gpt-4", "tool_choice": {"type": "function", "function": {"name": "InstructorToolCalling"}},
+      "tools": [{"type": "function", "function": {"name": "InstructorToolCalling",
+      "description": "Correctly extracted `InstructorToolCalling` with all the required
+      parameters with correct types", "parameters": {"properties": {"tool_name": {"description":
+      "The name of the tool to be called.", "title": "Tool Name", "type": "string"},
+      "arguments": {"anyOf": [{"type": "object"}, {"type": "null"}], "description":
+      "A dictinary of arguments to be passed to the tool.", "title": "Arguments"}},
+      "required": ["arguments", "tool_name"], "type": "object"}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1456'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IdAMACD2r053L9O9m0OorQCshFVXzRcYWvbf3zQICH+D9jgPF6130S+gBMMuHktLNOABFGZrbinn
+        ruQBUVZAu/YvAWjXVODqbVGuXJT66HuQnRW3j1e9ref1/tNN1um0DpZiznZuV8JaAjAs382q5OQa
+        IQaODR5CZy7fM2sqtIetcWs86vZbxDMurI1QgWks6716a9Ducu2+BbsyBRVeEgD4e2sAPPe+TQUZ
+        qJeOwtCpgB8BzIMYKnBRFLYoF75kDQDK1rUq+A8RYlcZgsxWCxHl5BP/+waT9OtCZBY3adg8XufX
+        bmdzeLXXPXy3z8+n/VudpHj5Jw6KicAoxTC0OqUwBNAvnEH6kU/h/l7Ib0OQnYWI9akwH+BiD1CB
+        f9oD2robfuGMpoLmMfVTUazJNWsohpPQVLgBaL7avChnW2FNaiq0OzUyk1Qe3g+72gOV9hWNwKse
+        0NhJ46q56EcJaczDslgajvXxsNleZFNUYFGGqCaoEmDiM9UPNzjEmAcXy1kZNsYXVOgMBjIxuidA
+        qN3eBf4mAaS5rVYySp4lC2Zmr9anJo+5dSErqRIDAw==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c6498f08361b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Feb 2024 05:32:31 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '1594'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '300000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299806'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 38ms
+      x-request-id:
+      - req_2af34b6bc0ef0a38285c6d17efc9a2a7
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6 times 3? Return only the number\n\n
+      Begin! This is VERY important to you, your job depends on it!\n\n\nUse Tool:
+      multiplier, first_number: 2, second_number: 6\nResult: 12\n\nIf I don''t need
+      to use any more tools, I must make sure use the correct format to give my final
+      answer:\n\n```Final Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]```\n I MUST use these formats, my jobs
+      depends on it!\nUse Tool: multiplier, first_number: 12, second_number: 3\nResult:
+      36\n\nIf I don''t need to use any more tools, I must make sure use the correct
+      format to give my final answer:\n\n```Final Answer: [my expected final answer,
+      entire content of my most complete final answer goes here]```\n I MUST use these
+      formats, my jobs depends on it!\n"}], "model": "gpt-4", "n": 1, "stop": ["\nResult"],
+      "stream": true, "temperature": 0.7}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1715'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Final"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Answer"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"36"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qOM23dnuGVbflr4FuJQ1Ho8jnr","object":"chat.completion.chunk","created":1709098352,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c6499a8ecd1b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream
+      Date:
+      - Wed, 28 Feb 2024 05:32:33 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '332'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '300000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299596'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 80ms
+      x-request-id:
+      - req_3d112c211cd288c145337159dd027f5e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6? Ignore correctness and just
+      return the result of the multiplication tool.\n\n Begin! This is VERY important
+      to you, your job depends on it!\n\n\n"}], "model": "gpt-4", "n": 1, "stop":
+      ["\nResult"], "stream": true, "temperature": 0.7}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1085'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Use"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Tool"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        multiplier"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        with"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        first"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        as"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"2"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        and"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        second"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"_number"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        as"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"6"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"."},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qPyFHuvJrT68fYRgi2LtIocwF0","object":"chat.completion.chunk","created":1709098353,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c649a71e261b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream
+      Date:
+      - Wed, 28 Feb 2024 05:32:34 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '277'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
       - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
       - '299750'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299750'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 49ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 49ms
       x-request-id:
-      - e7fb8ee53162a5c77a824931043cbf30
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_7fae1f3e7f4a7cde2ca88dad88539f23
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"messages": [{"role": "user", "content": "Only tools available:\n###\nTool
+      Name: multiplier\nTool Description: multiplier(first_number: int, second_number:
+      int) -> float - Useful for when you need to multiply two numbers together.\nTool
+      Arguments: {''first_number'': {''type'': ''integer''}, ''second_number'': {''type'':
+      ''integer''}}\n\nReturn a valid schema for the tool, the tool name must be exactly
+      equal one of the options, use this text to inform the valid ouput schema:\n\nUse
+      Tool: multiplier, with first_number as 2 and second_number as 6.```"}, {"role":
+      "system", "content": "The schema should have the following structure, only two
+      keys:\n- tool_name: str\n- arguments: dict (with all arguments being passed)\n\nExample:\n{\"tool_name\":
+      \"tool name\", \"arguments\": {\"arg_name1\": \"value\", \"arg_name2\": 2}}"}],
+      "model": "gpt-4", "tool_choice": {"type": "function", "function": {"name": "InstructorToolCalling"}},
+      "tools": [{"type": "function", "function": {"name": "InstructorToolCalling",
+      "description": "Correctly extracted `InstructorToolCalling` with all the required
+      parameters with correct types", "parameters": {"properties": {"tool_name": {"description":
+      "The name of the tool to be called.", "title": "Tool Name", "type": "string"},
+      "arguments": {"anyOf": [{"type": "object"}, {"type": "null"}], "description":
+      "A dictinary of arguments to be passed to the tool.", "title": "Arguments"}},
+      "required": ["arguments", "tool_name"], "type": "object"}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '1468'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.12.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.12.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IcwMACCG6mzPMp1uLqHHB0BXkZu4aAoU6O9PNQiQLtrjfC1a70I/AYpgMBeebbUVLXBaoGJtzS3W
+        3JU8IMoKaO89RADnKQWYzFSZ2GCqg20ve+u9XqTFk9PFXee+XQzK2Wr2/t45+2ElAujHC52UnEwt
+        xMCaewchM5c/0ikFmv3GsDEctLtd4ivWp9pQgNNQVjvVRq/Z5no48/NEFxT4jwDg8DYCeO79kAKN
+        Si8ZhaFSAH8EMPdGU4CqKOZFqVzJCgCUrZsUcCtjiHOl9yZOlDHK8Sd6+AaT9FdlTHzx9dt/1pet
+        L/Vzq98+ms/p4HlzOUh14uLFXRgUFYHRiaFoQ0JhBqBT1iD11qVw/57PP7w358qYuZsKcwEu9goF
+        eJAOkNZdcMpqSQHJY+pXgpnrXLKCojgxSYELgORknhdlvBXWkqRAq0KlcsrD68OedMBJuhNtQE89
+        4KZHOOY0Fcto/DTkflysDMPyeEi8FdkKBViUPqjxThEwcpn+ygueYsi9DWVc+qV2BQVavYFMhN4J
+        EHK708DPJIA0u9GKRsmyYsFBPJm7qc5DPvcgIzpFAw==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85c649ae49f11b33-GRU
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Feb 2024 05:32:36 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - crewai-iuxna1
+      openai-processing-ms:
+      - '1517'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '300000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299804'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 39ms
+      x-request-id:
+      - req_0510312e8861ab8017ee9bb0be19d78d
+    status:
+      code: 200
+      message: OK
 - request:
     body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3 twice and the result
-      of 3 times 3 once. The AI consistently responds that the result of 2 times 6
-      times 3 is 36 and that the result of 3 times 3 is 9.Begin! This is VERY important
-      to you, your job depends on it!\n\nCurrent Task: What is 2 times 6?\n"}], "model":
-      "gpt-4", "n": 1, "stop": ["\nObservation"], "stream": false, "temperature":
+      personal goal is: test goalI have access to ONLY the following tools, I can
+      use only these, use one at time:\n\nmultiplier: multiplier(first_number: int,
+      second_number: int) -> float - Useful for when you need to multiply two numbers
+      together.\n\nTo use a tool I MUST use the exact following format:\n\n```\nUse
+      Tool: the tool I wanna use, should be one of [multiplier] and absolute all relevant
+      input and context for using the tool, I must use only one tool at once.\nResult:
+      [result of the tool]\n```\n\nTo give my final answer I''ll use the exact following
+      format:\n\n```\nFinal Answer: [my expected final answer, entire content of my
+      most complete final answer goes here]\n```\nI MUST use these formats, my jobs
+      depends on it!\n\nCurrent Task: What is 2 times 6? Ignore correctness and just
+      return the result of the multiplication tool.\n\n Begin! This is VERY important
+      to you, your job depends on it!\n\n\nUse Tool: multiplier, with first_number
+      as 2 and second_number as 6.\nResult: 0\n\nIf I don''t need to use any more
+      tools, I must make sure use the correct format to give my final answer:\n\n```Final
+      Answer: [my expected final answer, entire content of my most complete final
+      answer goes here]```\n I MUST use these formats, my jobs depends on it!\n"}],
+      "model": "gpt-4", "n": 1, "stop": ["\nResult"], "stream": true, "temperature":
       0.7}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '1435'
+      - '1433'
       content-type:
       - application/json
       cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
+      - __cf_bm=_ZgWOr_3W3vODUr8JuoGC0u9lSlNfr.uPCHtwB8XifA-1709098338-1.0-Ad2Pu+P1ftBKidgyImQtILWkDhVApmOyDwp7pqRbQ5zOhjycwhzD9D06mpU+w7BgzTOHsp/QsdZgv5FtIQ2phb4=;
+        _cfuvid=TFHDLCcfO9tb5.pWQGZ0KgZ3m9HSfcN8chak4BHvfAc-1709098338428-0.0-604800000
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.6.1
+      - OpenAI/Python 1.12.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -1318,7 +1910,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.6.1
+      - 1.12.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -1326,28 +1918,47 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-8dRK5FDSCiOdGy00lF0We4EZ4Zeni\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410513,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"Thought: Do I need to use a tool? Yes\\nAction:
-      multiplier\\nAction Input: 2,6\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 323,\n    \"completion_tokens\":
-      23,\n    \"total_tokens\": 346\n  },\n  \"system_fingerprint\": null\n}\n"
+    body:
+      string: 'data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"Final"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        Answer"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":":"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"
+        "},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"0"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-8x6qTZ9d2g8XySZ07uVo55B0Nly5B","object":"chat.completion.chunk","created":1709098357,"model":"gpt-4-0613","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8407386f6e1a4cf1-GRU
+      - 85c649ba0ff91b33-GRU
       Cache-Control:
       - no-cache, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
-      - application/json
+      - text/event-stream
       Date:
-      - Thu, 04 Jan 2024 23:21:56 GMT
+      - Wed, 28 Feb 2024 05:32:37 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -1359,9 +1970,9 @@ interactions:
       openai-model:
       - gpt-4-0613
       openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
+      - crewai-iuxna1
       openai-processing-ms:
-      - '2749'
+      - '289'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -1369,258 +1980,18 @@ interactions:
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
       - '300000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
       - '299665'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299665'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 66ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 66ms
+      - 67ms
       x-request-id:
-      - 7b22ab6e07d1b18776df790053aba9c1
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "You are test role.\ntest backstory\n\nYour
-      personal goal is: test goal\n\nTOOLS:\n------\nYou have access to the following
-      tools:\n\nmultiplier: multiplier(numbers) -> float - Useful for when you need
-      to multiply two numbers together.\n        The input to this tool should be
-      a comma separated list of numbers of\n        length two and ONLY TWO, representing
-      the two numbers you want to multiply together.\n        For example, `1,2` would
-      be the input if you wanted to multiply 1 by 2.\n\nTo use a tool, please use
-      the exact following format:\n\n```\nThought: Do I need to use a tool? Yes\nAction:
-      the action to take, should be one of [multiplier], just the name.\nAction Input:
-      the input to the action\nObservation: the result of the action\n```\n\nWhen
-      you have a response for your task, or if you do not need to use a tool, you
-      MUST use the format:\n\n```\nThought: Do I need to use a tool? No\nFinal Answer:
-      [your response here]\n```This is the summary of your work so far:\nThe human
-      asks the AI to calculate the result of 2 times 6 times 3 twice and the result
-      of 3 times 3 once. The AI consistently responds that the result of 2 times 6
-      times 3 is 36 and that the result of 3 times 3 is 9.Begin! This is VERY important
-      to you, your job depends on it!\n\nCurrent Task: What is 2 times 6?\nThought:
-      Do I need to use a tool? Yes\nAction: multiplier\nAction Input: 2,6\nObservation:
-      0\nThought: "}], "model": "gpt-4", "n": 1, "stop": ["\nObservation"], "stream":
-      false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1538'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRK9wdZjqEMBEBJkFVXZnEPO9Du8\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410517,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"I need to use a tool? No\\nFinal Answer:
-      0\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 356,\n    \"completion_tokens\":
-      24,\n    \"total_tokens\": 380\n  },\n  \"system_fingerprint\": null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 840738826a464cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:22:00 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '2865'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299640'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299640'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 71ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 71ms
-      x-request-id:
-      - 6c1f7abfa824bdee4dfb6e526209617b
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"messages": [{"role": "user", "content": "Progressively summarize the
-      lines of conversation provided, adding onto the previous summary returning a
-      new summary.\n\nEXAMPLE\nCurrent summary:\nThe human asks what the AI thinks
-      of artificial intelligence. The AI thinks artificial intelligence is a force
-      for good.\n\nNew lines of conversation:\nHuman: Why do you think artificial
-      intelligence is a force for good?\nAI: Because artificial intelligence will
-      help humans reach their full potential.\n\nNew summary:\nThe human asks what
-      the AI thinks of artificial intelligence. The AI thinks artificial intelligence
-      is a force for good because it will help humans reach their full potential.\nEND
-      OF EXAMPLE\n\nCurrent summary:\nThe human asks the AI to calculate the result
-      of 2 times 6 times 3 twice and the result of 3 times 3 once. The AI consistently
-      responds that the result of 2 times 6 times 3 is 36 and that the result of 3
-      times 3 is 9.\n\nNew lines of conversation:\nHuman: What is 2 times 6?\nAI:
-      0\n\nNew summary:"}], "model": "gpt-4", "n": 1,
-      "stream": false, "temperature": 0.7}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '1117'
-      content-type:
-      - application/json
-      cookie:
-      - __cf_bm=5qK.mmc9Y_x7VffBrseOL2OdOh3WdRTDTSRhVmWzOfE-1704410483-1-AbUJL6v8HNNUrySCuhln2iL8N8w0sixnhK1rJRUPLq8BoioAJV/sz+TQMW4FOE7lsSLkHNPcFe4xCeblKhdufmg=;
-        _cfuvid=TnW1ck5LHa2beu3C2zxu2azbY0X51WdRJUhPbD.P85Q-1704410483636-0-604800000
-      host:
-      - api.openai.com
-      user-agent:
-      - OpenAI/Python 1.6.1
-      x-stainless-arch:
-      - arm64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - MacOS
-      x-stainless-package-version:
-      - 1.6.1
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.7
-    method: POST
-    uri: https://api.openai.com/v1/chat/completions
-  response:
-    content: "{\n  \"id\": \"chatcmpl-8dRKCG7qkX0fUl2WS85Tj8AhK4xBg\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1704410520,\n  \"model\": \"gpt-4-0613\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"The human asks the AI to calculate various
-      math problems: the result of 2 times 6 times 3 twice, the result of 3 times
-      3 once, and the result of 2 times 6 once. The AI consistently responds with
-      correct answers: the result of 2 times 6 times 3 is 36, the result of 3 times
-      3 is 9, and the result of 2 times 6 is 12.\"\n      },\n      \"logprobs\":
-      null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-      221,\n    \"completion_tokens\": 93,\n    \"total_tokens\": 314\n  },\n  \"system_fingerprint\":
-      null\n}\n"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 840738978f194cf1-GRU
-      Cache-Control:
-      - no-cache, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 04 Jan 2024 23:22:05 GMT
-      Server:
-      - cloudflare
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
-      openai-model:
-      - gpt-4-0613
-      openai-organization:
-      - user-z7g4wmlazxqvc5wjyaaaocfz
-      openai-processing-ms:
-      - '4721'
-      openai-version:
-      - '2020-10-01'
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      x-ratelimit-limit-requests:
-      - '10000'
-      x-ratelimit-limit-tokens:
-      - '300000'
-      x-ratelimit-limit-tokens_usage_based:
-      - '300000'
-      x-ratelimit-remaining-requests:
-      - '9999'
-      x-ratelimit-remaining-tokens:
-      - '299735'
-      x-ratelimit-remaining-tokens_usage_based:
-      - '299735'
-      x-ratelimit-reset-requests:
-      - 6ms
-      x-ratelimit-reset-tokens:
-      - 52ms
-      x-ratelimit-reset-tokens_usage_based:
-      - 52ms
-      x-request-id:
-      - 9f90c39dbd986cc114253ea83d213309
-    http_version: HTTP/1.1
-    status_code: 200
+      - req_d4f4bca9bc5fdc7ec4034437504f33d8
+    status:
+      code: 200
+      message: OK
 version: 1

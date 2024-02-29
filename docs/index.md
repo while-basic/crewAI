@@ -28,6 +28,11 @@ Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By 
                     Processes
                 </a>
             </li>
+            <li>
+                <a href="./core-concepts/Crews">
+                    Crews
+                </a>
+            </li>
         </ul>
     </div>
     <div style="width:30%">
@@ -39,7 +44,7 @@ Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By 
                 </a>
             </li>
             <li>
-                <a href="./how-to/how-to/Sequential">
+                <a href="./how-to/Sequential">
                     Using Sequential Process
                 </a>
             </li>
